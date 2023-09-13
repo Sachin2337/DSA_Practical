@@ -1,7 +1,11 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include "stack.h"
-int main()
+#ifndef STACK_H
+#define STACK_H
+#define SIZE 10
+struct stack
 {
-    st* s = (st *)malloc(sizeof(st));
-    createStack(s);
+    int top;
+    int items[SIZE];
+};
+
+typedef struct stack st;
+void createStack(st *s);
