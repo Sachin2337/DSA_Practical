@@ -3,9 +3,10 @@
 #include "stack.h"
 int main()
 {
-    int top;
-    int items[SIZE];
-};
-
-typedef struct stack st;
-void createStack(st *s);
+    st* s = (st *)malloc(sizeof(st));
+    createStack(s);
+    push(s,1);
+    push(s,5);
+    printf("%d\n",pop(s)); 
+    printStack(s);
+}
