@@ -24,3 +24,4 @@ int isEmpty(st *s)
         return 0;
     }
 }
+
