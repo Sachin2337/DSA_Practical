@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "Stack/stack.h"               // Include the stack-related header
 #include "InfixToPostfix/InfixToPostfix.h" // Include the infix-to-postfix header
-//#include "EvaluatePostfixFolder/EvaluatePostfix.h" // Include the postfix evaluation header
+#include "EvaluatePostfix/EvaluatePostfix.h" // Include the postfix evaluation header
 
 int main() {
     int choice;
