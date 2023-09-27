@@ -73,5 +73,4 @@ void treeTraversal() {
     postorderTraversal(root);
     printf("\n");
 
-    // Implement your tree traversal algorithms functionality here
 }
