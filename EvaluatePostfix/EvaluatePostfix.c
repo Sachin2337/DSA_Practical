@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "EvaluatePostfix.h"
-#include "Stack/Stack.h"
+#include "Stack/stack.h"
 
 // Function to evaluate a postfix expression
 void evaluatePostfix() {
