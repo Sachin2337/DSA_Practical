@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "BracketMatching.h"
-#include "Stack/stack.h"
+#include "../Stack/Stack.h"
 
 // Function to perform bracket matching
 void bracketMatching() {

@@ -1,7 +1,19 @@
+#include <stdlib.h>
+#include <string.h>
 #include <stdio.h>
+#include <ctype.h>
 #include "InfixToPostfix.h"
-#include "Stack/stack.h"
+#include "../Stack/stack.h"
 
+
+// Function to get the precedence of an operator
+int getPrecedence(char op) {
+    if (op == '+' || op == '-')
+        return 1;
+    if (op == '*' || op == '/')
+        return 2;
+    return 0;
+    }
 // Function to perform infix-to-postfix conversion
 void infixToPostfix() {
     // Prompt the user to enter an infix expression
