@@ -1,2 +1,5 @@
 # Ignoring vscode files
 *.vscode
+
+# Ignore .gitignore file
+*.gitignore
