@@ -1,18 +1,14 @@
-#ifndef BINARYTREES_H
-#define BINARYTREES_H
+#ifndef BINARY_TREE
+#define BINARY_TREE
 
-// Define a structure for a binary tree node
-typedef struct TreeNode {
+struct TreeNode {
     int data;
-    struct TreeNode* left;
-    struct TreeNode* right;
-} TreeNode;
+   struct TreeNode* left;
+   struct TreeNode* right;
+};
+typedef struct TreeNode TreeNode;
 
-// Function prototypes
-TreeNode* createNode(int data);
-TreeNode* insert(TreeNode* root, int data);
-TreeNode* search(TreeNode* root, int key);
-TreeNode* findMin(TreeNode* node);
-TreeNode* deleteNode(TreeNode* root, int key);
-
+TreeNode* createNode(int data) ;
+TreeNode* insert( TreeNode* root, int data);
+TreeNode* delete(TreeNode* root, int data);
 #endif
