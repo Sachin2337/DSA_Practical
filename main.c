@@ -56,56 +56,13 @@ void stackOperations() {
     }
 }
 
-// Define binary tree operations function separately
-void binaryTreeOperations() {
-    TreeNode* root = NULL; // Initialize an empty binary tree
-
-    int choice;
-    int item;
-
-    while (1) {
-        printf("\nBinary Tree Operations Menu:\n");
-        printf("1. Insert\n");
-        printf("2. Delete\n");
-        printf("3. Search\n");
-        printf("4. Back to Main Menu\n");
-        printf("Enter your choice: ");
-        scanf("%d", &choice);
-
-        switch (choice) {
-            case 1:
-                printf("Enter an element to insert: ");
-                scanf("%d", &item);
-                root = insert(root, item);
-                break;
-            case 2:
-                printf("Enter an element to delete: ");
-                scanf("%d", &item);
-                root = deleteNode(root, item);
-                break;
-            case 3:
-                printf("Enter an element to search: ");
-                scanf("%d", &item);
-                TreeNode* result = search(root, item);
-                if (result) {
-                    printf("Element %d found in the tree.\n", item);
-                } else {
-                    printf("Element %d not found in the tree.\n", item);
-                }
-                break;
-            case 4:
-                // Free the memory allocated for the binary tree (you may need to implement this function)
-                // freeBinaryTree(root);
-                return;  // Return to the main menu
-            default:
-                printf("Invalid choice. Please try again.\n");
-        }
-    }
-}
 
 int main() {
     int choice;
     TreeNode* root = NULL; // Initialize the root pointer
+    int treeCreated = 0;
+    int data;
+    int option;
 
     while (1) {
         // Display the main menu
@@ -136,7 +93,52 @@ int main() {
                 bracketMatching();   // Call function for bracket matching from BracketMatching
                 break;
             case 5:
-                binaryTreeOperations();  // Call functions for binary tree operations
+                // Binary tree operations code
+                do {
+                    printf("Enter:\n");
+                    printf("1. Insert data in binary tree\n");
+                    printf("2. To delete\n");
+                    printf("3. Inorder Traversal\n");
+                    printf("4. Preorder Traversal\n");
+                    printf("5. Postorder Traversal\n");
+                    printf("6. Back to Main Menu\n");
+
+                    scanf("%d", &option);
+                    switch (option) {
+                        case 1:
+                            printf("Enter the data to be inserted: ");
+                            scanf("%d", &data);
+                            if (treeCreated) {
+                                insert(root, data);
+                            } else {
+                                root = insert(root, data);
+                                treeCreated = 1;
+                            }
+                            break;
+                        case 2:
+                            // TO DO: Add code for deletion
+                            break;
+                        case 3:
+                            printf("Inorder Traversal: ");
+                            inorderTraversal(root);
+                            printf("\n");
+                            break;
+                        case 4:
+                            printf("Preorder Traversal: ");
+                            preorderTraversal(root);
+                            printf("\n");
+                            break;
+                        case 5:
+                            printf("Postorder Traversal: ");
+                            postorderTraversal(root);
+                            printf("\n");
+                            break;
+                        case 6:
+                            break;
+                        default:
+                            printf("Invalid choice. Please try again.\n");
+                    }
+                } while (option != 6);
                 break;
             case 6:
                 // Add code here to call tree traversal functions
