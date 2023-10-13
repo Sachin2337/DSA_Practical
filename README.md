@@ -58,17 +58,38 @@ Project Root
 
 Compile the project using the following command:
 
-```bash
-gcc -o program main.c \
-    Dijkstra'sAlgorithm/Dijkstra'sAlgorithm.c \
-    MergeSort/MergeSort.c \
-    QuickSort/QuickSort.c \
-    BinaryTrees/BinaryTrees.c \
-    BracketMatching/BracketMatching.c \
-    EvaluatePostfix/EvaluatePostfix.c \
-    InfixToPostfix/InfixToPostfix.c \
-    Stack/Stack.c \
-    TreeTraversal/TreeTraversal.c
+# Compile main.c
+gcc -c main.c -o main.o
+
+# Compile Dijkstra'sAlgorithm.c
+gcc -c DijkstrasAlgorithm\DijkstrasAlgorithm.c -o DijkstrasAlgorithm\DijkstrasAlgorithm.o
+
+# Compile MergeSort.c
+gcc -c MergeSort\MergeSort.c -o MergeSort\MergeSort.o        
+
+# Compile QuickSort.c
+gcc -c QuickSort\QuickSort.c -o QuickSort\QuickSort.o     
+
+# Compile BinaryTrees.c
+gcc -c BinaryTrees\BinaryTrees.c -o BinaryTrees\BinaryTrees.o
+
+# Compile BracketMatching.c
+gcc -c BracketMatching\BracketMatching.c -o BracketMatching\BracketMatching.o
+
+# Compile EvaluatePostfix.c
+gcc -c EvaluatePostfix\EvaluatePostfix.c -o EvaluatePostfix\EvaluatePostfix.o
+
+# Compile InfixToPostfix.c
+gcc -c InfixToPostfix\InfixToPostfix.c -o InfixToPostfix\InfixToPostfix.o    
+
+# Compile Stack.c
+gcc -c Stack\stack.c -o Stack\stack.o    
+
+# Compile TreeTraversal.c
+gcc -c TreeTraversal\TreeTraversal.c -o TreeTraversal\TreeTraversal.o
+
+# Link all object files into an executable named 'main'
+ gcc -o program main.o Stack/stack.o InfixToPostfix/InfixToPostfix.o EvaluatePostfix/EvaluatePostfix.o BracketMatching/BracketMatching.o BinaryTrees/BinaryTrees.o TreeTraversal/TreeTraversal.o MergeSort/MergeSort.o QuickSort/QuickSort.o DijkstrasAlgorithm/DijkstrasAlgorithm.o
 
 ## How to Run
     - Run the compiled program using the following command: ./program
