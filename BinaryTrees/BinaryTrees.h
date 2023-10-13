@@ -1,4 +1,3 @@
-//To-do
 #ifndef BINARY_TREE
 #define BINARY_TREE
 

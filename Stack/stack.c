@@ -60,11 +60,3 @@ void displayStack(Stack* stack) {
     }
     printf("\n");
 }
-
-// Implement the stack operations here
-void stackOperations() {
-    // Example stack operations
-    printf("Stack Operations selected.\n");
-
-    // Implement your stack-related functionality here
-}
