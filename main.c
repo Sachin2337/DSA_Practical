@@ -1,11 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "Stack/stack.h"    // Include the stack-related header
+#include "Stack/stack.h"                // Include the stack-related header
 #include "InfixToPostfix/InfixToPostfix.h"  // Include the InfixToPostfix header
-#include "EvaluatePostfix/EvaluatePostfix.h"    // Include the postfix evaluation header
-#include "BracketMatching/BracketMatching.h"    // Include the BracketMatching header
-#include "BinaryTrees/BinaryTrees.h"    // Include the BinaryTrees header
+#include "EvaluatePostfix/EvaluatePostfix.h"  // Include the postfix evaluation header
+#include "BracketMatching/BracketMatching.h" // Include the BracketMatching header
+#include "BinaryTrees/BinaryTrees.h"        // Include the BinaryTrees header
 #include "TreeTraversal/TreeTraversal.h"    // Include the TreeTraversal header
+#include "MergeSort/MergeSort.h"            // Include the MergeSort header
+#include "QuickSort/QuickSort.h"            // Include the QuickSort header
+#include "DijkstrasAlgorithm/DijkstrasAlgorithm.h"  // Include the Dijkstra's Algorithm header
+
 
 // Define the stackOperations function separately
 void stackOperations() {
@@ -56,6 +60,66 @@ void stackOperations() {
     }
 }
 
+void quickSortMenu() {
+    int n;
+
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    int arr[n];
+
+    printf("Enter %d elements:\n", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    quickSort(arr, 0, n - 1);
+
+    printf("Sorted array: \n");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
+
+void mergeSortMenu() {
+    int n;
+
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    int arr[n];
+
+    printf("Enter %d elements:\n", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    mergeSort(arr, 0, n - 1);
+
+    printf("Sorted array: \n");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
+
+
+void dijkstraMenu() {
+    int graph[V][V];
+    printf("Enter the adjacency matrix of the graph (%d x %d):\n", V, V);
+    for (int i = 0; i < V; i++) {
+        for (int j = 0; j < V; j++) {
+            scanf("%d", &graph[i][j]);
+        }
+    }
+
+    int source;
+    printf("Enter the source vertex: ");
+    scanf("%d", &source);
+
+    dijkstra(graph, source);
+}
 
 int main() {
     int choice;
@@ -73,7 +137,10 @@ int main() {
         printf("4. Bracket Matching\n");
         printf("5. Binary Trees\n");
         printf("6. Tree Traversal\n");
-        printf("7. Quit\n");
+        printf("7. Merge Sort\n");
+        printf("8. Quick Sort\n");
+        printf("9. Dijkstra's Algorithm\n");
+        printf("10. Quit\n");
         printf("Enter your choice: ");
 
         // Read user's choice
@@ -81,29 +148,34 @@ int main() {
 
         switch (choice) {
             case 1:
-                stackOperations();  // Call functions for stack operations from Stack
+                // Call functions for stack operations from Stack
+                stackOperations();
                 break;
             case 2:
-                infixToPostfix();   // Call functions for infix-to-postfix conversion from InfixToPostfix
+                // Call functions for infix-to-postfix conversion from InfixToPostfix
+                infixToPostfix();
                 break;
             case 3:
-                evaluatePostfix();  // Call functions for evaluating postfix expressions from EvaluatePostfix
+                // Call functions for evaluating postfix expressions from EvaluatePostfix
+                evaluatePostfix();
                 break;
             case 4:
-                bracketMatching();   // Call function for bracket matching from BracketMatching
+                // Call function for bracket matching from BracketMatching
+                bracketMatching();
                 break;
             case 5:
                 // Binary tree operations code
                 do {
                     printf("Enter:\n");
-                    printf("1. Insert data in binary tree\n");
-                    printf("2. To delete\n");
+                    printf("1. Insert data in the binary tree\n");
+                    printf("2. Delete from the binary tree\n");
                     printf("3. Inorder Traversal\n");
                     printf("4. Preorder Traversal\n");
                     printf("5. Postorder Traversal\n");
                     printf("6. Back to Main Menu\n");
-
+                    printf("Enter your choice: ");
                     scanf("%d", &option);
+
                     switch (option) {
                         case 1:
                             printf("Enter the data to be inserted: ");
@@ -116,7 +188,7 @@ int main() {
                             }
                             break;
                         case 2:
-                            // TO DO: Add code for deletion
+                           //delete node
                             break;
                         case 3:
                             printf("Inorder Traversal: ");
@@ -141,38 +213,54 @@ int main() {
                 } while (option != 6);
                 break;
             case 6:
-                // Add code here to call tree traversal functions
+                // Tree traversal operations code
                 while (1) {
-                    printf("Tree Traversal Menu:\n");
-                    printf("1. Preorder Traversal\n");
-                    printf("2. Inorder Traversal\n");
-                    printf("3. Postorder Traversal\n");
-                    printf("4. Back to Main Menu\n");
-                    printf("Enter your choice: ");
-                    int traversalChoice;
-                    scanf("%d", &traversalChoice);
-                    switch (traversalChoice) {
-                        case 1:
-                            // Call the preorder traversal function
-                            preorderTraversal(root); // You should pass your binary tree's root here
-                            break;
-                        case 2:
-                            // Call the inorder traversal function
-                            inorderTraversal(root); // You should pass your binary tree's root here
-                            break;
-                        case 3:
-                            // Call the postorder traversal function
-                            postorderTraversal(root); // You should pass your binary tree's root here
-                            break;
-                        case 4:
-                            // Return to the main menu
-                            break;
-                        default:
-                            printf("Invalid choice. Please try again.\n");
-                    }
-                }
+    printf("Tree Traversal Menu:\n");
+    printf("1. Preorder Traversal\n");
+    printf("2. Inorder Traversal\n");
+    printf("3. Postorder Traversal\n");
+    printf("4. Back to Main Menu\n");
+    printf("Enter your choice: ");
+    int traversalChoice;
+    scanf("%d", &traversalChoice);
+
+    switch (traversalChoice) {
+        case 1:
+            printf("Preorder Traversal: ");
+            preorderTraversal(root);
+            printf("\n");
+            break;
+        case 2:
+            printf("Inorder Traversal: ");
+            inorderTraversal(root);
+            printf("\n");
+            break;
+        case 3:
+            printf("Postorder Traversal: ");
+            postorderTraversal(root);
+            printf("\n");
+            break;
+        case 4:
+            break; // Return to the main menu
+        default:
+            printf("Invalid choice. Please try again.\n");
+    }
+}
+
                 break;
             case 7:
+                // Call the mergeSort function with input and output file names
+               mergeSortMenu();
+                break;
+            case 8:
+                // Call the quickSortFile function with input and output file names
+                 quickSortMenu();
+                break;
+            case 9:
+                // Call the dijkstraMenu function to perform Dijkstra's Algorithm
+                dijkstraMenu();
+                break;
+            case 10:
                 printf("Exiting the program. Goodbye!\n");
                 return 0;
             default:
@@ -182,3 +270,4 @@ int main() {
 
     return 0;
 }
+
